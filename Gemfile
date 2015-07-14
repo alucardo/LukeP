@@ -24,6 +24,8 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'devise'
+gem 'cancancan'
+gem 'rolify'
 
 gem "haml-rails", "~> 0.9"
 
