@@ -14,7 +14,7 @@ gem 'cancancan'
 gem 'rolify'
 gem "haml-rails", "~> 0.9"
 gem 'therubyracer'
-gem 'less-rails'
+gem 'bootstrap-sass'
 gem 'twitter-bootstrap-rails'
 
 
@@ -24,5 +24,6 @@ group :development, :test do
   gem 'spring'
   gem 'rspec-rails', '~> 3.0'
   gem 'factory_girl_rails'
+  gem 'faker'
   gem 'pry-rails'
 end
