@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150715071431) do
+ActiveRecord::Schema.define(version: 20150715100211) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,19 +20,35 @@ ActiveRecord::Schema.define(version: 20150715071431) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "lesson_id"
   end
+
+  add_index "divisions", ["lesson_id"], name: "index_divisions_on_lesson_id", using: :btree
 
   create_table "grades", force: :cascade do |t|
     t.integer  "grade"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "subject_id"
   end
+
+  add_index "grades", ["subject_id"], name: "index_grades_on_subject_id", using: :btree
 
   create_table "klasses", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "lessons", force: :cascade do |t|
+    t.integer  "division_id"
+    t.integer  "subject_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "lessons", ["division_id"], name: "index_lessons_on_division_id", using: :btree
+  add_index "lessons", ["subject_id"], name: "index_lessons_on_subject_id", using: :btree
 
   create_table "roles", force: :cascade do |t|
     t.string   "name"
@@ -49,7 +65,10 @@ ActiveRecord::Schema.define(version: 20150715071431) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "lesson_id"
   end
+
+  add_index "subjects", ["lesson_id"], name: "index_subjects_on_lesson_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -76,4 +95,9 @@ ActiveRecord::Schema.define(version: 20150715071431) do
 
   add_index "users_roles", ["user_id", "role_id"], name: "index_users_roles_on_user_id_and_role_id", using: :btree
 
+  add_foreign_key "divisions", "lessons"
+  add_foreign_key "grades", "subjects"
+  add_foreign_key "lessons", "divisions"
+  add_foreign_key "lessons", "subjects"
+  add_foreign_key "subjects", "lessons"
 end
