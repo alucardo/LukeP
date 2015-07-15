@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150715100211) do
+ActiveRecord::Schema.define(version: 20150715111955) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,15 +30,10 @@ ActiveRecord::Schema.define(version: 20150715100211) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "subject_id"
+    t.integer  "student_id"
   end
 
   add_index "grades", ["subject_id"], name: "index_grades_on_subject_id", using: :btree
-
-  create_table "klasses", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
 
   create_table "lessons", force: :cascade do |t|
     t.integer  "division_id"
@@ -66,6 +61,7 @@ ActiveRecord::Schema.define(version: 20150715100211) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "lesson_id"
+    t.integer  "teacher_id"
   end
 
   add_index "subjects", ["lesson_id"], name: "index_subjects_on_lesson_id", using: :btree
@@ -83,6 +79,7 @@ ActiveRecord::Schema.define(version: 20150715100211) do
     t.inet     "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.integer  "division_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
