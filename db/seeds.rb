@@ -7,5 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
-user = User.new(email: 'admin@studentGradebook.com', password: "12345678", password_confirmation: "12345678")
+user = User.new(firstname: "Headmaster", lastname: "of School",
+                email: 'admin@studentGradebook.com', password: "12345678",
+                password_confirmation: "12345678")
 user.save!
