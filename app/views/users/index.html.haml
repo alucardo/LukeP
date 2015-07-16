@@ -20,7 +20,7 @@
       %td= link_to 'Show', user, class: 'btn btn-success btn-block btn-sm'
       -if current_user.has_role? :headmaster
         %td= link_to 'Edit', edit_user_path(user), class: 'btn btn-info btn-block btn-sm'
-        %td= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-block btn-sm'
+        %td= link_to 'Destroy', users_path, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-block btn-sm'
 
 - if current_user.has_role? :headmaster
   = link_to 'New', new_user_path, class: 'btn btn-success'
