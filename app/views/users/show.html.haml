@@ -1,2 +1,12 @@
-%h1 Users#show
-%p Find me in app/views/users/show.html.haml
+.profile
+  .row
+    .col-md-4
+      %h1
+        = current_user.firstname
+        = current_user.lastname
+      %p
+        = current_user.email
+      %p
+        = "Registerd at: #{current_user.created_at.to_s(:custom_datetime)}"
+      %p
+        = link_to "Edit profile", edit_user_registration_path(current_user)

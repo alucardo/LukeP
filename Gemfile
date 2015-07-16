@@ -16,6 +16,7 @@ gem "haml-rails", "~> 0.9"
 gem 'therubyracer'
 gem 'bootstrap-sass'
 gem 'twitter-bootstrap-rails'
+gem 'decent_exposure'
 
 
 group :development, :test do

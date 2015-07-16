@@ -7,7 +7,26 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
-user = User.new(firstname: "Headmaster", lastname: "of School",
-                email: 'admin@studentGradebook.com', password: "12345678",
-                password_confirmation: "12345678")
-user.save!
+u = User.new(firstname: "Albus", lastname: "Dumbledore",
+             email: 'albus.dumbledore@hogwart.co.uk', password: "12345678",
+             password_confirmation: "12345678")
+u.save!
+u.add_role :headmaster
+
+u = User.new(firstname: "Harry", lastname: "Potter",
+             email: 'harry.potter@hogwart.co.uk', password: "12345678",
+             password_confirmation: "12345678")
+u.save!
+u.add_role :student
+
+u = User.new(firstname: "Ron", lastname: "Weasley",
+             email: 'ron.weasley@hogwart.co.uk', password: "12345678",
+             password_confirmation: "12345678")
+ u.save!
+ u.add_role :student
+
+u = User.new(firstname: "Hermiona", lastname: "Granger",
+             email: 'hermiona.granger@hogwart.co.uk', password: "12345678",
+             password_confirmation: "12345678")
+ u.save!
+ u.add_role :student
