@@ -1,24 +1,20 @@
-class UsersController < ApplicationController
+class Admin::UsersController < ApplicationController
   before_action :authenticate_user!
   expose(:users)
   expose(:user, attributes: :user_params)
 
   def create
-    binding.pry
     if user.save
-      binding.pry
-      redirect_to user, notice: 'User was successfully updated'
+      redirect_to admin_user_path(user), notice: 'User was successfully updated'
     else
-      binding.pry
       render :new
     end
   end
 
 
   def update
-    binding.pry
     if user.update(user_params)
-      redirect_to user, notice: 'User was successfully updated'
+      redirect_to admin_user_path(user), notice: 'User was successfully updated'
     else
       render :edit, notice: 'Ups'
     end
@@ -26,7 +22,7 @@ class UsersController < ApplicationController
 
   def destroy
     user.destroy
-    redirect_to users_path, notice: 'User was sucessfully destroyed'
+    redirect_to admin_users_path, notice: 'User was sucessfully destroyed'
   end
 
   private

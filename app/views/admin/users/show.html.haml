@@ -1,0 +1,17 @@
+.profile
+  .row
+    .col-md-4
+      -if user != current_user
+        %h1
+          = current_user.firstname
+          = current_user.lastname
+        %p
+          = current_user.email
+        %p
+          = link_to "Edit profile", edit_admin_user_path(current_user)
+      -else
+        %h1
+          = user.firstname
+          = user.lastname
+        %p
+          = user.email

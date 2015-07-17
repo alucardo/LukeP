@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
 
   devise_for :users
-  resources :users
+  namespace :admin do
+    resources :users
+  end
   devise_scope :user do
     authenticated :user do
-      root 'users#show', as: :authenticated_root
+      root 'admin/users#show', as: :authenticated_root
     end
 
     unauthenticated do

@@ -49,7 +49,6 @@ GEM
     builder (3.2.2)
     byebug (5.0.0)
       columnize (= 0.9.0)
-    cancancan (1.12.0)
     coderay (1.1.0)
     coffee-rails (4.1.0)
       coffee-script (>= 2.2.0)
@@ -259,7 +258,6 @@ PLATFORMS
 DEPENDENCIES
   bootstrap-sass
   byebug
-  cancancan
   coffee-rails (~> 4.1.0)
   decent_exposure
   devise
