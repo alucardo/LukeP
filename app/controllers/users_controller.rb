@@ -3,8 +3,10 @@ class UsersController < ApplicationController
   expose(:users)
   expose(:user, attributes: :user_params)
 
+
   def create
     if user.save
+      roles.each { |r| role_adder(r) }
       redirect_to user, notice: 'User was successfully updated'
     else
       render :new
@@ -14,6 +16,7 @@ class UsersController < ApplicationController
 
   def update
     if user.update(user_params)
+      roles.each { |r| role_adder(r) }
       redirect_to user, notice: 'User was successfully updated'
     else
       render :edit, notice: 'Ups'
@@ -33,5 +36,13 @@ class UsersController < ApplicationController
         params[:user].delete(:password)
       end
       params.require(:user).permit(:firstname, :lastname, :email, :password, :password_confirmation)
+    end
+
+    def role_adder(role)
+      if params[role] == "1"
+        @user.add_role(role)
+      elsif params[role] == "0"
+        @user.remove_role(role)
+      end
     end
 end

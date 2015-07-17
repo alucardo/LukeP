@@ -18,3 +18,9 @@
       = form.password_field :password_confirmation, class: "form-control"
     %div.text-center.col-md-12
       = form.submit "Submit", class: "btn btn-success"
+    %fieldset
+    %legend User Roles
+    - @roles.each do | role |
+      = f.label(role) do
+        role
+        \#{hidden_field_tag(role, 0)}#{check_box_tag(role, 1, @user.has_role?(role))}
