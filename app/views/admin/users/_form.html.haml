@@ -20,7 +20,4 @@
       = form.submit "Submit", class: "btn btn-success"
     %fieldset
     %legend User Roles
-    - @roles.each do | role |
-      = f.label(role) do
-        role
-        \#{hidden_field_tag(role, 0)}#{check_box_tag(role, 1, @user.has_role?(role))}
+    = form.collection_select :role_ids, Role.all, :id, :name, {}, multiple: true

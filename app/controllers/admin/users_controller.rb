@@ -4,6 +4,7 @@ class Admin::UsersController < ApplicationController
   expose(:user, attributes: :user_params)
 
   def create
+    binding.pry
     if user.save
       redirect_to admin_user_path(user)
     else
@@ -32,6 +33,6 @@ class Admin::UsersController < ApplicationController
         params[:user].delete(:password_confirmation)
         params[:user].delete(:password)
       end
-      params.require(:user).permit(:firstname, :lastname, :email, :password, :password_confirmation)
+      params.require(:user).permit(:firstname, :lastname, :email, :password, :password_confirmation, role_ids:[])
     end
 end

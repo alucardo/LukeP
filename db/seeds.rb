@@ -6,7 +6,6 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-
 u = User.new(firstname: "Albus", lastname: "Dumbledore",
              email: 'albus.dumbledore@hogwart.co.uk', password: "12345678",
              password_confirmation: "12345678")
@@ -38,5 +37,5 @@ u = User.new(firstname: "Hermiona", lastname: "Granger",
 
  3.times  do |subject|
    subject = Subject.new(name: Faker::Commerce.department)
-   subject.save   
+   subject.save
  end

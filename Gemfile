@@ -16,6 +16,7 @@ gem 'therubyracer'
 gem 'bootstrap-sass'
 gem 'twitter-bootstrap-rails'
 gem 'decent_exposure'
+gem 'simple_form'
 
 
 group :development, :test do
