@@ -5,7 +5,7 @@ class Admin::UsersController < ApplicationController
 
   def create
     if user.save
-      redirect_to admin_user_path(user), notice: 'User was successfully updated'
+      redirect_to admin_user_path(user)
     else
       render :new
     end
@@ -14,15 +14,15 @@ class Admin::UsersController < ApplicationController
 
   def update
     if user.update(user_params)
-      redirect_to admin_user_path(user), notice: 'User was successfully updated'
+      redirect_to admin_user_path(user)
     else
-      render :edit, notice: 'Ups'
+      render :edit
     end
   end
 
   def destroy
     user.destroy
-    redirect_to admin_users_path, notice: 'User was sucessfully destroyed'
+    redirect_to admin_users_path
   end
 
   private

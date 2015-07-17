@@ -10,23 +10,33 @@
 u = User.new(firstname: "Albus", lastname: "Dumbledore",
              email: 'albus.dumbledore@hogwart.co.uk', password: "12345678",
              password_confirmation: "12345678")
-u.save!
+u.save
 u.add_role :headmaster
 
 u = User.new(firstname: "Harry", lastname: "Potter",
              email: 'harry.potter@hogwart.co.uk', password: "12345678",
              password_confirmation: "12345678")
-u.save!
+u.save
 u.add_role :student
 
 u = User.new(firstname: "Ron", lastname: "Weasley",
              email: 'ron.weasley@hogwart.co.uk', password: "12345678",
              password_confirmation: "12345678")
- u.save!
+ u.save
  u.add_role :student
 
 u = User.new(firstname: "Hermiona", lastname: "Granger",
              email: 'hermiona.granger@hogwart.co.uk', password: "12345678",
              password_confirmation: "12345678")
- u.save!
+ u.save
  u.add_role :student
+
+ 3.times  do |division|
+   division = Division.new(name: Faker::Lorem.word)
+   division.save
+ end
+
+ 3.times  do |subject|
+   subject = Subject.new(name: Faker::Commerce.department)
+   subject.save   
+ end

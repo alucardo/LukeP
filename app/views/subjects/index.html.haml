@@ -1,0 +1,21 @@
+%h1 Subjects
+%p
+
+%table.table.table-hover
+  %tr.active
+    %th Name
+    %th
+    %th
+    %th
+
+  - subjects.each do |subject|
+    %tr
+      %td= subject.name
+      %td= link_to 'Show', subject_path(subject), class: 'btn btn-success btn-block btn-sm'
+      -if current_user.has_role? :headmaster
+        %td= link_to 'Edit', edit_subject_path(subject), class: 'btn btn-info btn-block btn-sm'
+        %td= link_to 'Destroy', subject_path(subject), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-block btn-sm'
+
+- if current_user.has_role? :headmaster
+  = link_to 'New', new_subject_path, class: 'btn btn-success'
+%br

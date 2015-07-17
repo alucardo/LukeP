@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :users
   end
+  resources :divisions
+  resources :subjects
   devise_scope :user do
     authenticated :user do
       root 'admin/users#show', as: :authenticated_root

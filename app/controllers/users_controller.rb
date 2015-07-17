@@ -4,19 +4,15 @@ class UsersController < ApplicationController
   expose(:user, attributes: :user_params)
 
   def create
-    binding.pry
     if user.save
-      binding.pry
       redirect_to user, notice: 'User was successfully updated'
     else
-      binding.pry
       render :new
     end
   end
 
 
   def update
-    binding.pry
     if user.update(user_params)
       redirect_to user, notice: 'User was successfully updated'
     else
