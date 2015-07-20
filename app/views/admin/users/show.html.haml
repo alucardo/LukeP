@@ -1,7 +1,7 @@
 .profile
   .row
     .col-md-4
-      -if user != current_user
+      -if user.nil?
         %h1
           = current_user.firstname
           = current_user.lastname

@@ -9,6 +9,9 @@ class User < ActiveRecord::Base
   has_many :teacher_subject,   foreign_key: 'teacher_id', class_name: 'Subject'
   has_many :student_grades,    foreign_key: 'student_id', class_name: 'Grade'
 
+  scope :students, -> { with_role :student}
+  scope :unassigned, -> { where(division_id: nil).with_role :student }
+
   validates :firstname, presence: true
   validates :lastname, presence: true
   validates :roles, presence: true

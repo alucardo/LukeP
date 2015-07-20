@@ -4,7 +4,7 @@ FactoryGirl.define do
   factory :subject do
     name { generate :subject_name }
 
-    trait :with_teachers do
+    trait :with_teacher do
       after :build do |sub|
         sub.teacher = FactoryGirl.build :user, :teacher
       end

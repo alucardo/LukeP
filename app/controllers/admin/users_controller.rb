@@ -3,6 +3,10 @@ class Admin::UsersController < ApplicationController
   expose(:users)
   expose(:user, attributes: :user_params)
 
+  def show
+    binding.pry
+  end
+
   def create
     if user.save
       redirect_to admin_user_path(user)

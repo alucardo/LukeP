@@ -12,7 +12,7 @@ FactoryGirl.define do
 
     trait :with_subjects do
       after :build do |div|
-        div.subjects << 3.times.map { FactoryGirl.build :subject, :with_teachers}
+        div.subjects << 3.times.map { FactoryGirl.build :subject, :with_teacher}
       end
     end
   end

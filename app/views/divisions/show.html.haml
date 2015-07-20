@@ -17,4 +17,18 @@
             %td= subject.teacher.fullname
             %td= link_to 'Show', subject_path(subject), class: 'btn btn-success btn-block btn-sm'
 
+      %table.table.table-hover
+        %tr.active
+          %th First name
+          %th Last name
+          %th
+          %th
+
+        - students.each do |student|
+          %tr
+            %td= student.firstname
+            %td= student.lastname
+            %td= link_to 'Show', admin_user_path(student), class: 'btn btn-success btn-block btn-sm'
+
+
 = link_to 'Back', divisions_path, class: 'btn btn-primary'

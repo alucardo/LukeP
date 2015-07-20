@@ -3,7 +3,7 @@ class DivisionsController < ApplicationController
   expose(:divisions)
   expose(:division, attributes: :division_params)
   expose(:subjects)
-  expose(:students) { User.with_role :student}
+  expose(:students) { User.unassigned}
 
   def create
     binding.pry
@@ -31,6 +31,6 @@ class DivisionsController < ApplicationController
   private
 
     def division_params
-      params.require(:division).permit(:name, subject_ids: [], student_id: [])
+      params.require(:division).permit(:name, subject_ids: [], student_ids: [])
     end
 end
