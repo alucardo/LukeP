@@ -5,7 +5,6 @@
   %tr.active
     %th Name
     %th Email
-    %th Division
     %th Roles
     %th
     %th
@@ -15,7 +14,6 @@
     %tr
       %td= "#{user.firstname} #{user.lastname}"
       %td= user.email
-      %td= "division"
       %td= user.get_roles_as_string
       %td= link_to 'Show', admin_user_path(user), class: 'btn btn-success btn-block btn-sm'
       -if current_user.has_role? :headmaster

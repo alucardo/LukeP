@@ -2,10 +2,6 @@ class Admin::UsersController < ApplicationController
   before_action :authenticate_user!
   expose(:users)
   expose(:user, attributes: :user_params)
-
-  def show
-    binding.pry
-  end
   
   def create
     if user.save
