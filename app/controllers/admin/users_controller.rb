@@ -4,7 +4,6 @@ class Admin::UsersController < ApplicationController
   expose(:user, attributes: :user_params)
 
   def create
-    binding.pry
     if user.save
       redirect_to admin_user_path(user)
     else

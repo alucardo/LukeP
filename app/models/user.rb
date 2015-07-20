@@ -11,4 +11,12 @@ class User < ActiveRecord::Base
 
   validates :firstname, presence: true
   validates :lastname, presence: true
+
+  def get_roles_as_array
+     roles(select: :name).collect(&:name)
+  end
+
+  def get_roles_as_string
+    get_roles_as_array.join(', ')
+  end
 end
