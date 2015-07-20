@@ -4,4 +4,17 @@
       %h1
         = division.name
 
+      %table.table.table-hover
+        %tr.active
+          %th Subject
+          %th Teacher name
+          %th
+          %th
+
+        - subjects.each do |subject|
+          %tr
+            %td= subject.name
+            %td= subject.teacher.fullname
+            %td= link_to 'Show', subject_path(subject), class: 'btn btn-success btn-block btn-sm'
+
 = link_to 'Back', divisions_path, class: 'btn btn-primary'

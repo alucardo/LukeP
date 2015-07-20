@@ -19,4 +19,8 @@ class User < ActiveRecord::Base
   def get_roles_as_string
     get_roles_as_array.join(', ')
   end
+
+  def fullname
+    firstname + " " + lastname
+  end
 end

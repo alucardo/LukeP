@@ -3,5 +3,8 @@
   = simple_form_for subject do |form|
     %div.form-group.col-md-12
       = form.input :name, class: "form-control"
+      = form.input :teacher_id, as: :select, input_html: { multiple: false },
+                   collection: (users), label: 'Teachers:',
+                   label_method: :fullname, value_method: :id
     %div.text-center.col-md-12
       = form.submit "Submit", class: "btn btn-success"

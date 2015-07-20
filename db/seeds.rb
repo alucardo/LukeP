@@ -6,36 +6,33 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-u = User.new(firstname: "Albus", lastname: "Dumbledore",
-             email: 'albus.dumbledore@hogwart.co.uk', password: "12345678",
-             password_confirmation: "12345678")
-u.save
+u = User.create(firstname: "Albus", lastname: "Dumbledore",
+             email: 'albus.dumbledore@hogwart.co.uk', password: "password",
+             password_confirmation: "password")
 u.add_role :headmaster
 
-u = User.new(firstname: "Harry", lastname: "Potter",
-             email: 'harry.potter@hogwart.co.uk', password: "12345678",
-             password_confirmation: "12345678")
-u.save
-u.add_role :student
+10.times do |user|
+  firstname = Faker::Name.first_name
+  lastname = Faker::Name.last_name
+  user = User.create(firstname: firstname, lastname: lastname,
+                     email: "#{firstname}.#{lastname}@student.com", password: "password",
+                     password_confirmation: "password")
+  user.add_role :student
+end
 
-u = User.new(firstname: "Ron", lastname: "Weasley",
-             email: 'ron.weasley@hogwart.co.uk', password: "12345678",
-             password_confirmation: "12345678")
- u.save
- u.add_role :student
+5.times do |user|
+  firstname = Faker::Name.first_name
+  lastname = Faker::Name.last_name
+  user = User.create(firstname: firstname, lastname: lastname,
+                     email: "#{firstname}.#{lastname}@teacher.com", password: "password",
+                     password_confirmation: "password")
+  user.add_role :teacher
+end
 
-u = User.new(firstname: "Hermiona", lastname: "Granger",
-             email: 'hermiona.granger@hogwart.co.uk', password: "12345678",
-             password_confirmation: "12345678")
- u.save
- u.add_role :student
+3.times  do |division|
+ division = Division.create(name: Faker::Lorem.word)
+end
 
- 3.times  do |division|
-   division = Division.new(name: Faker::Lorem.word)
-   division.save
- end
-
- 3.times  do |subject|
-   subject = Subject.new(name: Faker::Commerce.department)
-   subject.save
- end
+3.times  do |subject|
+ subject = Subject.create(name: Faker::Commerce.department)
+end
