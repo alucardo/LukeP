@@ -4,7 +4,7 @@
     %div.form-group.col-md-12
       = form.input :name, class: "form-control"
       = form.input :student_ids, as: :select, input_html: { multiple: true },
-                   collection: (students), label: 'Students:',
+                   collection: (assignable), label: 'Students:',
                    label_method: :fullname, value_method: :id
       = form.input :subject_ids, as: :select, input_html: { multiple: true },
                   collection: (Subject.all), label: 'Subjects:',

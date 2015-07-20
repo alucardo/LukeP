@@ -11,6 +11,8 @@ class User < ActiveRecord::Base
 
   scope :students, -> { with_role :student}
   scope :unassigned, -> { where(division_id: nil).with_role :student }
+  scope :unnasigneds_and_class_students, ->(division_id) {
+        where("division_id = #{division_id} or division_id IS NULL").with_role :student }
 
   validates :firstname, presence: true
   validates :lastname, presence: true

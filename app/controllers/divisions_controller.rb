@@ -3,7 +3,8 @@ class DivisionsController < ApplicationController
   expose(:divisions)
   expose(:division, attributes: :division_params)
   expose(:subjects)
-  expose(:students) { User.unassigned}
+  expose(:assignable) { User.unnasigneds_and_class_students(division.id) }
+  expose(:students) { division.students }
 
   def create
     binding.pry

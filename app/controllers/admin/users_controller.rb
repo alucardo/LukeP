@@ -6,7 +6,7 @@ class Admin::UsersController < ApplicationController
   def show
     binding.pry
   end
-
+  
   def create
     if user.save
       redirect_to admin_user_path(user)
