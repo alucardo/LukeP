@@ -7,15 +7,13 @@
     %th
     %th
     %th
+  - if current_user.has_role? :teacher
+    - teacher_divisions.each do |division|
+      = render 'division', division: division
+  - else
+    - divisions.each do |division|
+      = render 'division', division: division
 
-  - divisions.each do |division|
-    %tr
-      %td= division.name
-      %td= link_to 'Show', division_path(division), class: 'btn btn-success btn-block btn-sm'
-      -if current_user.has_role? :headmaster
-        %td= link_to 'Edit', edit_division_path(division), class: 'btn btn-info btn-block btn-sm'
-        %td= link_to 'Destroy', division_path(division), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-block btn-sm'
-        
 - if current_user.has_role? :headmaster
   = link_to 'New', new_division_path, class: 'btn btn-success'
 %br

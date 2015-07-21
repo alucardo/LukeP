@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   end
   resources :divisions
   resources :subjects
+  resources :grades
   devise_scope :user do
     authenticated do
       root 'admin/users#current_user_home', as: :authenticated_root

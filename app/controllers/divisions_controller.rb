@@ -3,7 +3,9 @@ class DivisionsController < ApplicationController
   expose(:divisions)
   expose(:division, attributes: :division_params)
   expose(:division_subjects) { division.subjects}
+  expose(:teacher_divisions) { Division.teacher_divisions(current_user.id) }
   expose(:subjects)
+  expose(:teacher_subjects) {  Subject.teacher_subjects_in_division(current_user.id, division.id) }
   expose(:assignable) { User.unnasigneds_and_class_students(division.id) }
   expose(:students) { division.students }
 
