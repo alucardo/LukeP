@@ -3,8 +3,8 @@ class GradesController < ApplicationController
   expose(:grade, attributes: :grade_params)
   expose(:subjects)
   expose(:division)
-  expose(:student_ab) { User.find(params[:user]) }
-  expose(:teacher_subjects) { Subject.teacher_subjects_in_division(current_user.id, student_ab.division_id)}
+  expose(:evaluated_student) { User.find(params[:user]) }
+  expose(:teacher_subjects) { Subject.teacher_subjects_in_division(current_user.id, evaluated_student.division_id)}
 
   def create
     if grade.save

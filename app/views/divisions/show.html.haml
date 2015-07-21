@@ -29,7 +29,7 @@
           %td= student.firstname
           %td= student.lastname
           -if current_user.has_role? :teacher
-            %td= link_to 'New', new_grade_path(user: student), class: 'btn btn-success'
+            %td= link_to 'Add grade', new_grade_path(user: student), class: 'btn btn-success'
           %td= link_to 'Show', admin_user_path(student), class: 'btn btn-success btn-block btn-sm'
 
 
