@@ -7,7 +7,6 @@ class DivisionsController < ApplicationController
   expose(:students) { division.students }
 
   def create
-    binding.pry
     if division.save
       redirect_to divisions_path
     else
@@ -16,7 +15,6 @@ class DivisionsController < ApplicationController
   end
 
   def update
-    binding.pry
     if division.save
       redirect_to divisions_path
     else
