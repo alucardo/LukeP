@@ -7,7 +7,7 @@
                    collection: (assignable), label: 'Students:',
                    label_method: :fullname, value_method: :id
       = form.input :subject_ids, as: :select, input_html: { multiple: true },
-                  collection: (Subject.all), label: 'Subjects:',
+                  collection: (subjects), label: 'Subjects:',
                   label_method: :name, value_method: :id
     %div.text-center.col-md-12
       = form.submit "Submit", class: "btn btn-success"

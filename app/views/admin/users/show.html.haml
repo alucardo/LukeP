@@ -6,4 +6,5 @@
         = user.lastname
       %p
         = user.email
-      = link_to "Edit profile", edit_admin_user_path(user)
+      -if (current_user.has_role? :headmaster) || (current_user.id == user.id)    
+        = link_to "Edit profile", edit_admin_user_path(user)

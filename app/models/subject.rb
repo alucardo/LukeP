@@ -4,5 +4,5 @@ class Subject < ActiveRecord::Base
   belongs_to :teacher, class_name: 'User'
   has_many :lessons
 
-  validates :teacher_id, presence: true
+  validates :teacher_id, presence: true  
 end
