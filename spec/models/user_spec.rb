@@ -28,13 +28,21 @@ describe User do
 
     it { expect(student).to validate_uniqueness_of :email}
 
+
+    let(:first_name) {"Johny"}
+    let(:last_name) {"Bravo"}
+    let(:full_name) {"Johny Bravo"}
+
     it "returns a contact's full name as a string" do
-      expect(student.fullname).to eq "#{student.firstname} #{student.lastname}"
+      student.firstname = first_name
+      student.lastname = last_name
+      expect(student.fullname).to eq full_name
     end
 
     describe "Saved user" do
       before :each do
         student.save
+        student.add_role :headmaster
       end
 
       it "returns roles as array" do
@@ -42,7 +50,6 @@ describe User do
       end
 
       it "return roles as string" do
-        student.add_role :headmaster
         expect(student.get_roles_as_string).to eq 'student, headmaster'
       end
     end
