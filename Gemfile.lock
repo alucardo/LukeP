@@ -58,6 +58,7 @@ GEM
       execjs
     coffee-script-source (1.9.1.1)
     columnize (0.9.0)
+    database_cleaner (1.4.1)
     debug_inspector (0.0.2)
     decent_exposure (2.3.2)
     devise (3.5.1)
@@ -185,6 +186,8 @@ GEM
       rspec-core (~> 3.3.0)
       rspec-expectations (~> 3.3.0)
       rspec-mocks (~> 3.3.0)
+    rspec-collection_matchers (1.1.2)
+      rspec-expectations (>= 2.99.0.beta1)
     rspec-core (3.3.1)
       rspec-support (~> 3.3.0)
     rspec-expectations (3.3.0)
@@ -262,6 +265,7 @@ DEPENDENCIES
   bootstrap-sass
   byebug
   coffee-rails (~> 4.1.0)
+  database_cleaner (~> 1.4.1)
   decent_exposure
   devise
   factory_girl_rails
@@ -275,6 +279,7 @@ DEPENDENCIES
   pry-rails
   rails (= 4.2.1)
   rolify
+  rspec-collection_matchers
   rspec-rails (~> 3.0)
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)

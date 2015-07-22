@@ -30,4 +30,6 @@ group :development, :test do
   gem 'guard'
   gem 'guard-rspec'
   gem 'shoulda-matchers'
+  gem 'database_cleaner', '~> 1.4.1'
+  gem 'rspec-collection_matchers'
 end
