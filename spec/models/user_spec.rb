@@ -29,14 +29,20 @@ describe User do
     it { expect(student).to validate_uniqueness_of :email}
 
 
-    let(:first_name) {"Johny"}
-    let(:last_name) {"Bravo"}
-    let(:full_name) {"Johny Bravo"}
-
-    it "returns a contact's full name as a string" do
-      student.firstname = first_name
-      student.lastname = last_name
-      expect(student.fullname).to eq full_name
+    
+    describe "#fullname" do
+        let(:first_name) {"Johny"}
+        let(:last_name) {"Bravo"}
+        let(:full_name) {"Johny Bravo"}    
+            
+        before do 
+          student.firstname = first_name
+          student.lastname = last_name  
+        end
+        
+        it "returns a contact's full name as a string" do
+          expect(student.fullname).to eq full_name
+        end
     end
 
     describe "Saved user" do
